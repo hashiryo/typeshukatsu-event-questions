@@ -12,7 +12,16 @@ def main():
 def serch_index(sorted_array, target_number):
 
     # ここから記述
-
+    low = 0
+    high = len(sorted_array)
+    while high - low > 1:
+        mid = (high + low) // 2
+        if sorted_array[mid] <= target_number:
+            low = mid
+        else:
+            high = mid
+    if sorted_array[low] == target_number:
+        return low
     # ここまで記述
 
     # 探索対象が存在しない場合、-1を返却

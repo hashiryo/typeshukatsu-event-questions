@@ -16,9 +16,22 @@ def sort(array):
     pivot = array[0]
 
     # ここから記述
-
+    left = 0
+    right = len(array) - 1
+    while True:
+        while left < right and array[left] < pivot:
+            left += 1
+        while left < right and array[right] >= pivot:
+            right -= 1
+        if left == right:
+            break
+        array[left], array[right] = array[right], array[left]
+    if left == 0 or left == len(array) - 1:
+        return array
+    return sort(array[:left]) + sort(array[left:])
     # ここまで記述
 
 
 if __name__ == '__main__':
+    a = [1, 2, 3]
     main()
